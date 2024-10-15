@@ -1,6 +1,6 @@
 {
-  "name": "clipboard-vue3",
-  "version": "0.9.10",
+  "name": "vue3-copy-clipboard",
+  "version": "0.9.99",
   "license": "MIT",
   "description": "clipboard for vue3",
   "type": "module",
@@ -39,24 +39,16 @@
   ],
   "scripts": {
     "lint": "eslint . --fix",
-    "build": "unbuild && rollup -c",
+    "watch": "tsc --watch -d",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "release": "npm run build && changelogen --release --push && npm publish"
   },
   "dependencies": {
     "clipboard": "^2.0.11"
   },
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.0",
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.0",
     "changelogen": "^0.5.7",
-    "eslint": "^9.12.0",
-    "rollup": "^4.24.0",
-    "tslib": "^2.7.0",
-    "typescript": "^5.6.3",
-    "unbuild": "^2.0.0"
+    "typescript": "^5.6.3"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

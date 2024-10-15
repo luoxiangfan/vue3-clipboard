@@ -1,9 +1,31 @@
 {
-  "exclude": ["./build.config.ts"],
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["ESNext"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext"
-  }
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "dist/esm",
+    "target": "ES2015",
+    "module": "ES2020",
+    "declaration": true,
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es6",
+      "dom",
+      "es2017"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules",
+    "dist"
+  ],
+  "compileOnSave": true
 }
