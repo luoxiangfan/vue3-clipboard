@@ -1,6 +1,6 @@
 {
   "name": "vue3-copy-clipboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "clipboard for vue3",
   "type": "module",
