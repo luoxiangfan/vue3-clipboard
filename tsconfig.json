@@ -1,0 +1,9 @@
+{
+  "exclude": ["./build.config.ts"],
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["ESNext"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  }
+}
