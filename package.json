@@ -1,15 +1,12 @@
 {
   "name": "vue3-copy-clipboard",
-  "version": "0.9.100",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "clipboard for vue3",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "browser": "dist/index.js",
-  "unpkg": "dist/index.min.js",
-  "jsdelivr": "dist/index.min.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.cts",
+  "main": "dist/cjs/index.js",
+  "types": "dist/esm/index.d.ts",
+  "module": "dist/esm/index.js",
   "repository": {
     "type": "git",
     "url": "git+git@github.com:luoxiangfan/vue3-clipboard.git"
@@ -22,18 +19,6 @@
     "copy",
     "cut"
   ],
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    }
-  },
   "files": [
     "dist"
   ],
