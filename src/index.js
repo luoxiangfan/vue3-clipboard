@@ -1,12 +1,10 @@
 import Clipboard from 'clipboard'
-import { createApp } from 'vue'
-import type { App } from 'vue'
 
 let VueClipboardConfig = {
   autoSetContainer: false,
   appendToBody: true,
 }
-export function copyText(text: string, container: HTMLElement | undefined, callback: Function) {
+export function copyText(text, container, callback) {
   const fakeElement = document.createElement('button')
   const clipboard = new Clipboard(fakeElement, {
     text: () => text,
@@ -26,7 +24,7 @@ export function copyText(text: string, container: HTMLElement | undefined, callb
   if (VueClipboardConfig.appendToBody) document.body.removeChild(fakeElement)
 }
 
-function vClipboard (app: App, vueClipboardConfig?: typeof VueClipboardConfig) {
+export default function (app, vueClipboardConfig) {
   if (vueClipboardConfig) VueClipboardConfig = Object.assign(VueClipboardConfig, vueClipboardConfig)
   app.config.globalProperties.$copyText = copyText
   app.directive('clipboard', {
@@ -84,9 +82,3 @@ function vClipboard (app: App, vueClipboardConfig?: typeof VueClipboardConfig) {
     }
   })
 }
-
-const app = createApp({})
-
-vClipboard(app, VueClipboardConfig)
-
-export type ClipboardConfig = typeof VueClipboardConfig
