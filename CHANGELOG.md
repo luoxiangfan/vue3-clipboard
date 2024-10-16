@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.3
+
+[compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.2...v1.0.3)
+
+### 🏡 Chore
+
+- Update package name (3f8476d)
+
+### ❤️ Contributors
+
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.0.2
 
 [compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.1...v1.0.2)
