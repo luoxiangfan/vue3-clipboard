@@ -1,5 +1,5 @@
 {
-  "name": "vue3-copy-clipboard",
+  "name": "@lxf2513/vue3-clipboard",
   "version": "1.0.2",
   "license": "MIT",
   "description": "clipboard for vue3",
