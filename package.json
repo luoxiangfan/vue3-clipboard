@@ -1,6 +1,6 @@
 {
   "name": "@lxf2513/vue3-clipboard",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "description": "clipboard for vue3",
   "type": "module",
