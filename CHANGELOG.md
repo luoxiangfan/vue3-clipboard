@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.0.2
+
+[compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.1...v1.0.2)
+
+### 💅 Refactors
+
+- Build with rollup (c9c88df)
+
+### 🏡 Chore
+
+- **release:** V1.0.1 (8d55aad)
+
+### ❤️ Contributors
+
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.0.1
 
 [compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.1...v1.0.1)
