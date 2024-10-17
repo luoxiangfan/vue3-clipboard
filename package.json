@@ -14,6 +14,14 @@
     "type": "git",
     "url": "git+git@github.com:luoxiangfan/vue3-clipboard.git"
   },
+  "keywords": [
+    "vue",
+    "vue3",
+    "clipboard",
+    "clipboard.js",
+    "copy",
+    "cut"
+  ],
   "exports": {
     ".": {
       "import": {
