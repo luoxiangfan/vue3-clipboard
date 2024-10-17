@@ -1,6 +1,21 @@
 # Changelog
 
 
+## v1.0.7
+
+[compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.6...v1.0.7)
+
+### 🏡 Chore
+
+- Add package keywords (4265392)
+- Set tsconfig target option to "ESNEXT" (ffef6fc)
+- Use single file to implement type definition and export (d9d92e2)
+- Update README.md (0393cce)
+
+### ❤️ Contributors
+
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.0.6
 
 [compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.3...v1.0.6)
