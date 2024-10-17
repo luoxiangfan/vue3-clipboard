@@ -112,7 +112,7 @@ app.use(VueClipboard, {
 <template>
   <div class="container">
     <button
-      @click="copyText('https://github.com/luoxiangfan/vue3-clipboard')"
+      @click="$copyText('https://github.com/luoxiangfan/vue3-clipboard')"
     >
       Copy
     </button>
