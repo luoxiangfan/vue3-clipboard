@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.8
+
+[compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.7...v1.0.8)
+
+### 🏡 Chore
+
+- Update README.md (7d37b9e)
+
+### ❤️ Contributors
+
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.0.7
 
 [compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.6...v1.0.7)
