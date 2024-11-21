@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/clipboard": "^2.0.10",
     "changelogen": "^0.5.7",
-    "eslint": "^9.14.0",
+    "eslint": "^9.15.0",
     "typescript": "^5.6.3",
     "unbuild": "^2.0.0"
   },
