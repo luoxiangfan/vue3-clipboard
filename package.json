@@ -39,6 +39,7 @@
   ],
   "scripts": {
     "lint": "eslint . --fix",
+    "type-check": "tsc --strict --noEmit",
     "build": "unbuild",
     "release": "npm run build && changelogen --release --push && npm publish"
   },
