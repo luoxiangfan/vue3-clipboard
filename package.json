@@ -40,6 +40,7 @@
   "scripts": {
     "lint": "eslint . --fix",
     "type-check": "tsc --strict --noEmit",
+    "format": "prettier --write src/",
     "build": "unbuild",
     "release": "npm run build && changelogen --release --push && npm publish"
   },
@@ -50,10 +51,12 @@
     "@types/clipboard": "^2.0.10",
     "changelogen": "^0.5.7",
     "eslint": "^9.15.0",
+    "prettier": "^3.3.3",
     "typescript": "^5.6.3",
-    "unbuild": "^2.0.0"
+    "unbuild": "^2.0.0",
+    "vue": "^3.5.13"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": ">=3.0.0"
   }
 }

@@ -1,51 +1,53 @@
-import Clipboard, { Event } from 'clipboard'
-import { IVueClipboard } from './types.js'
+import Clipboard, { Event } from 'clipboard';
+import { IVueClipboard } from './types.js';
 
 const VueClipboardConfig = {
   autoSetContainer: false,
-  appendToBody: true,
-}
+  appendToBody: true
+};
 
 export function copyText(
   text: string,
   container: HTMLElement | undefined,
   callback?: (statusTxt: 'success' | 'error', evt: Event) => void
 ) {
-  const fakeElement = document.createElement('button')
+  const fakeElement = document.createElement('button');
   const clipboard = new Clipboard(fakeElement, {
     text: () => text,
     action: () => 'copy',
     container: container || document.body
-  })
+  });
   clipboard.on('success', function (e) {
-    clipboard.destroy()
+    clipboard.destroy();
     if (callback) {
-      callback('success', e)
+      callback('success', e);
     }
-  })
+  });
   clipboard.on('error', function (e) {
-    clipboard.destroy()
+    clipboard.destroy();
     if (callback) {
-      callback('error', e)
+      callback('error', e);
     }
-  })
+  });
   if (VueClipboardConfig.appendToBody) {
-    document.body.appendChild(fakeElement)
+    document.body.appendChild(fakeElement);
   }
-  fakeElement.click()
+  fakeElement.click();
   if (VueClipboardConfig.appendToBody) {
-    document.body.removeChild(fakeElement)
+    document.body.removeChild(fakeElement);
   }
 }
 
-export const VueClipboard: IVueClipboard  = {
+export const VueClipboard: IVueClipboard = {
   config: (options) => {
-    const { autoSetContainer, appendToBody } = options
-    VueClipboardConfig.autoSetContainer = autoSetContainer ? autoSetContainer : false
-    VueClipboardConfig.appendToBody = appendToBody ? appendToBody : true
+    const { autoSetContainer, appendToBody } = options;
+    VueClipboardConfig.autoSetContainer = autoSetContainer
+      ? autoSetContainer
+      : false;
+    VueClipboardConfig.appendToBody = appendToBody ? appendToBody : true;
   },
   install(app) {
-    app.config.globalProperties.$copyText = copyText
+    app.config.globalProperties.$copyText = copyText;
     app.directive('clipboard', {
       beforeMount(el, binding) {
         const { value, arg } = binding;
@@ -100,6 +102,6 @@ export const VueClipboard: IVueClipboard  = {
           delete el._v_clipboard;
         }
       }
-    })
+    });
   }
-}
+};
