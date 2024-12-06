@@ -29,10 +29,10 @@ For standalone usage:
 <body>
   <button onclick="module.copy()">Copy</button>
   <script type="module">
-  import { copyText } from 'https://cdn.jsdelivr.net/npm/@lxf2513/vue3-clipboard@1.0.7/+esm'
+  import { copyText } from 'https://cdn.jsdelivr.net/npm/@lxf2513/vue3-clipboard@1.1.0/+esm'
   function copy() {
-    copyText('https://github.com/luoxiangfan/vue3-clipboard', undefined, (statusTxt, evt) => {
-      console.log(statusTxt) // 'success' or 'error'
+    copyText('https://github.com/luoxiangfan/vue3-clipboard', undefined, (success, evt) => {
+      console.log(success) // true or false
       console.log(evt) // Clipboard Event
     })
   }
@@ -133,8 +133,8 @@ app.use(VueClipboard, {
   import { copyText } from '@lxf2513/vue3-clipboard'
 
   const copy = () => {
-    copyText('https://github.com/luoxiangfan/vue3-clipboard', undefined, (statusTxt, evt) => {
-      console.log(statusTxt) // 'success' or 'error'
+    copyText('https://github.com/luoxiangfan/vue3-clipboard', undefined, (success, evt) => {
+      console.log(success) // true or false
       console.log(evt) // Clipboard Event
     })
   }
