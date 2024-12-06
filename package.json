@@ -42,14 +42,13 @@
     "type-check": "tsc --strict --noEmit",
     "format": "prettier --write src/",
     "build": "unbuild",
-    "release": "npm run build && changelogen --release --push && npm publish"
+    "release": "npm run build && npm publish"
   },
   "dependencies": {
     "clipboard": "^2.0.11"
   },
   "devDependencies": {
     "@types/clipboard": "^2.0.10",
-    "changelogen": "^0.5.7",
     "eslint": "^9.16.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
