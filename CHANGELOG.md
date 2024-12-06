@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v1.0.9
+
+[compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.8...v1.0.9)
+
+### 📖 Documentation
+
+- Update usage example (7756100)
+
+### 🏡 Chore
+
+- Ignore npm-cache (fa37d1d)
+- Code formatted (240965f)
+- Optimize code to reduce the package size (71ad35d)
+- Optimize code to reduce the package size (5f05d1b)
+
+### ❤️ Contributors
+
+- Lxf <infiniment@163.com>
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.0.8
 
 [compare changes](https://git+git@github.com/luoxiangfan/vue3-clipboard/compare/v1.0.7...v1.0.8)
