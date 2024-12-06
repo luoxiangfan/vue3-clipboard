@@ -9,7 +9,7 @@ const config = {
 export function copyText(
   text: string,
   container: HTMLElement | undefined,
-  callback?: (statusTxt: 'success' | 'error', evt: Event) => void
+  callback?: (success: boolean, evt: Event) => void
 ) {
   const fakeElement = document.createElement('button');
   const clipboard = new Clipboard(fakeElement, {
@@ -20,13 +20,13 @@ export function copyText(
   clipboard.on('success', function (e) {
     clipboard.destroy();
     if (callback) {
-      callback('success', e);
+      callback(true, e);
     }
   });
   clipboard.on('error', function (e) {
     clipboard.destroy();
     if (callback) {
-      callback('error', e);
+      callback(false, e);
     }
   });
   if (config.appendToBody) {
@@ -41,10 +41,8 @@ export function copyText(
 export const VueClipboard: IVueClipboard = {
   config: (options) => {
     const { autoSetContainer, appendToBody } = options;
-    config.autoSetContainer = autoSetContainer
-      ? autoSetContainer
-      : false;
-    config.appendToBody = appendToBody ? appendToBody : true;
+    config.autoSetContainer = autoSetContainer ?? false;
+    config.appendToBody = appendToBody ?? true;
   },
   install(app) {
     app.config.globalProperties.$copyText = copyText;
