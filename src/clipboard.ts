@@ -1,7 +1,7 @@
 import Clipboard, { Event } from 'clipboard';
 import { IVueClipboard } from './types.js';
 
-const VueClipboardConfig = {
+const config = {
   autoSetContainer: false,
   appendToBody: true
 };
@@ -29,11 +29,11 @@ export function copyText(
       callback('error', e);
     }
   });
-  if (VueClipboardConfig.appendToBody) {
+  if (config.appendToBody) {
     document.body.appendChild(fakeElement);
   }
   fakeElement.click();
-  if (VueClipboardConfig.appendToBody) {
+  if (config.appendToBody) {
     document.body.removeChild(fakeElement);
   }
 }
@@ -41,10 +41,10 @@ export function copyText(
 export const VueClipboard: IVueClipboard = {
   config: (options) => {
     const { autoSetContainer, appendToBody } = options;
-    VueClipboardConfig.autoSetContainer = autoSetContainer
+    config.autoSetContainer = autoSetContainer
       ? autoSetContainer
       : false;
-    VueClipboardConfig.appendToBody = appendToBody ? appendToBody : true;
+    config.appendToBody = appendToBody ? appendToBody : true;
   },
   install(app) {
     app.config.globalProperties.$copyText = copyText;
@@ -62,7 +62,7 @@ export const VueClipboard: IVueClipboard = {
             const clipboard = new Clipboard(el, {
               text: () => value,
               action: () => (arg === 'cut' ? 'cut' : 'copy'),
-              container: VueClipboardConfig.autoSetContainer ? el : undefined
+              container: config.autoSetContainer ? el : undefined
             });
             clipboard.on('success', (e) => {
               const callback = el._v_clipboard_success;

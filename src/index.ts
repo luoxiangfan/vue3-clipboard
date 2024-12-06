@@ -1,9 +1,4 @@
-import { ClipboardConfig, Action } from './types.js';
 import { copyText } from './clipboard.js';
-
-declare global {
-  const $copyText: typeof copyText;
-}
 
 declare module 'vue' {
   interface ComponentCustomProperties {
@@ -17,6 +12,6 @@ declare module '@vue/runtime-core' {
   }
 }
 
-export type { ClipboardConfig, Action };
+export type { ClipboardConfig, Action } from './types.js';
 
 export { copyText, VueClipboard } from './clipboard.js';
