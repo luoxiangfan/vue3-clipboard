@@ -2,8 +2,8 @@ name: Publish And Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 permissions:
   id-token: write  # Required for OIDC
