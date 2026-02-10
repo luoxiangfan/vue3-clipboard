@@ -1,28 +1,40 @@
-name: Dependabot 自动合并
-on:
-  pull_request:
-    types: [opened, synchronize]
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      # 每周一 UTC 时间 9:00 检查 (北京时间 17:00)
+      day: "monday"
+      time: "09:00"
+      # 设置时区 (仅某些GitHub版本支持)
+      timezone: "Asia/Shanghai"
+    # 允许最多同时打开 3 个 PR，避免过多
+    open-pull-requests-limit: 3
+    # 为目标分支创建 PR，默认为默认分支
+    target-branch: "main"
+    # 版本更新策略
+    versioning-strategy: increase
+    # 添加标签和审查者
+    labels:
+      - "dependencies"
+    assignees:
+      - "luoxiangfan"
+    reviewers:
+      - "luoxiangfan"
 
-permissions:
-  contents: write
-  pull-requests: write
-  checks: read
+    groups:
+      npm-patch:
+        patterns: ["*"]
+        update-types: ["patch"]
+      npm-minor:
+        patterns: ["*"]
+        update-types: ["minor"]
 
-jobs:
-  auto-merge:
-    if: github.actor == 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: 自动合并
-        if: steps.wait-and-check.outputs.all_passed == 'true'
-        run: |
-          # 使用 GitHub CLI 合并
-          gh pr merge ${{ github.event.pull_request.number }} \
-            --auto \
-            --squash \
-            --subject "chore(deps): 自动合并 Dependabot 更新"
-          
-          echo "✅ PR 已自动合并"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # 忽略特定更新（按需修改）
+    ignore:
+      # 忽略某个包的所有更新
+      - dependency-name: "nuxt"
+      # 忽略某个包的主要版本更新
+      - dependency-name: "nuxt"
+        update-types: ["version-update:semver-major"]
