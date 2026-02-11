@@ -1,40 +1,39 @@
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      # 每周一 UTC 时间 9:00 检查 (北京时间 17:00)
-      day: "monday"
-      time: "09:00"
-      # 设置时区 (仅某些GitHub版本支持)
-      timezone: "Asia/Shanghai"
-    # 允许最多同时打开 3 个 PR，避免过多
-    open-pull-requests-limit: 3
-    # 为目标分支创建 PR，默认为默认分支
-    target-branch: "main"
-    # 版本更新策略
-    versioning-strategy: increase
-    # 添加标签和审查者
-    labels:
-      - "dependencies"
-    assignees:
-      - "luoxiangfan"
-    reviewers:
-      - "luoxiangfan"
+name: Dependabot Auto-Merge
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
-    groups:
-      npm-patch:
-        patterns: ["*"]
-        update-types: ["patch"]
-      npm-minor:
-        patterns: ["*"]
-        update-types: ["minor"]
+# 最小必要权限
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
 
-    # 忽略特定更新（按需修改）
-    ignore:
-      # 忽略某个包的所有更新
-      - dependency-name: "nuxt"
-      # 忽略某个包的主要版本更新
-      - dependency-name: "nuxt"
-        update-types: ["version-update:semver-major"]
+jobs:
+  merge-dependabot:
+    # 只处理来自dependabot的PR
+    if: |
+      github.actor == 'dependabot[bot]'
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 轻量级检出（仅用于可能需要的git操作）
+      - name: Checkout minimal
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          sparse-checkout: .github  # 只检出配置文件
+          sparse-checkout-cone-mode: false
+
+      # 执行合并
+      - name: Merge PR
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --squash \
+            --body "" \
+            --subject "$(gh pr view ${{ github.event.pull_request.number }} --json title -q .title)"
+          
+          echo "Merged successfully"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
